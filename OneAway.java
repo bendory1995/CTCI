@@ -8,7 +8,7 @@ public class OneAway{
     }
 
     public static boolean oneaway(String s1, String s2){
-        return (oneAdded(s1, s2) || oneAdded(s2, s1) || isReplaced(s1,s2));
+        return (oneAdded(s1, s2) || isReplaced(s1,s2));
 
     }
     //inserting a character and deleting a character is 
