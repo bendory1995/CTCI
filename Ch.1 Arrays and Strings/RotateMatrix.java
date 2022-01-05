@@ -16,8 +16,8 @@ public class RotateMatrix {
         int [][] rotated = new int [n][n];
         printSquare(square);
         System.out.println();
-        //rotated = rotate90(square, n);
-        rotated = rotate90Efficient(square);
+        rotated = rotate90(square, n);
+        //rotated = rotate90Efficient(square);
         printSquare(rotated);
         rotated = rotate90(rotated, n);
         printSquare(rotated);
@@ -55,24 +55,5 @@ public class RotateMatrix {
         return rotated;
     }
     //Better in space complexity because we change in place. 
-    public static int[][] rotate90Efficient(int [][] square){
-        int n = square.length; 
-        //transpose 
-        for(int i = 0; i < n; i++){
-            for(int j = i; j < n; j++){
-                int temp = square[i][j];
-                square[i][j] = square[j][i];
-                square[j][i] = temp;
-            }
-        }
-        //swap
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < n/2; j++){
-                int temp = square[i][j];
-                square[i][j] = square[i][n-1-j];
-                square[i][n-1-j] = temp;
-            }
-        }
-        return square;
-    }
+
 }
