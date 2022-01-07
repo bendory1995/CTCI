@@ -16,8 +16,8 @@ public class ReturnKthToLast {
         node.append(9);
         node.append(10);
         printNode(node);
-
-        System.out.println(k + "th item to last is " + returnKthToLast(node, k));
+        //System.out.println(k + "th item to last is " + returnKthToLast(node, k));
+        System.out.println(k + "th item to last is " + returnKthToLastRecursive(node, k));
     }
     public static void printNode(Node head){
         while(head.next!= null){
@@ -41,7 +41,16 @@ public class ReturnKthToLast {
         }
 
         return p2.data;
+    }
 
+    public static int returnKthToLastRecursive(Node head, int k){
+        if(head == null) return 0;
+
+        int index = returnKthToLast(head.next, k) + 1;
+        if(index == k){
+            System.out.println(k + "th to last node is "  + head.data);
+        } 
+        return index;
     }
 
 
