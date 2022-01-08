@@ -27,24 +27,26 @@ public class Partition {
         System.out.println();
         System.out.println();
     }
+    //Create a head and a tail
+    //if it's less than the number, node.next = head. Then change head. head = node;
+    //if it's not less than the number, tail.next = node. Then change tail. tail = node;
+    //after the loop, tail.next should be null. return head.
+    public static Node partition(Node node, int x){
+        Node head = node;
+        Node tail = node;
 
-    public static Node partition(Node head, int partitionNum){
-        Node early = head;
-        Node late = head;
-
-        while(head != null){
-            Node nextNode = head.next;
-
-            if(head.data < partitionNum){
-                head.next = early;
-                early = head;
+        while(node != null){
+            Node next = node.next;
+            if(node.data < x){
+                node.next = head;
+                head = node;
             }else{
-                late.next = head;
-                late = head;
+                tail.next = node;
+                tail = node;
             }
-            head = nextNode;
+            node = next;
         }
-        late.next = null;
+        tail.next = null;
         return head;
     }
 
