@@ -10,10 +10,37 @@ public class Palindrome {
         }
 
         System.out.println(isPalindrome(head.next));
+        System.out.println(isPalindromeStack(head.next));
 
         
     }
 
+    public static boolean isPalindromeStack(Node node){
+        Node slow = node;
+        Node fast = node;
+
+        Stack<Integer> stack = new Stack<Integer>();
+        
+        while(fast != null && fast.next != null){
+            stack.push(slow.data);
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        if(fast != null){
+            slow = slow.next;
+        }
+
+        while(slow != null){
+            int top = stack.pop().intValue();
+            if(top != slow.data) return false;
+            slow = slow.next;
+        }
+        return true;
+    }
+
+
+    //Reverse & Compare Method
     public static boolean isPalindrome(Node node){
         Node reversed = reversedNode(node);
         return isEqual(node, reversed);
