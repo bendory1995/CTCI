@@ -19,6 +19,8 @@ public class SortStack {
             r.push(tmp);
         }
 
+        //At this point s2 is fully sorted, but we need minimum at the bottom. 
+        //pop from s2 and push to s1. s1 will be sorted from smallest to largest.
         while(!r.isEmpty()){
             s.push(r.pop());
         }

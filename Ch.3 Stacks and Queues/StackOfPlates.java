@@ -37,6 +37,7 @@ class Node{
 class SetOfStacks{
     ArrayList<Stack> stacks = new ArrayList<Stack>();
     public int capacity;
+    
     public SetOfStacks(int capacity){
         this.capacity = capacity;
     }
